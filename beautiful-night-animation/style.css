@@ -1,10 +1,10 @@
 :root {
     --color1: #1b18bd;
-    --color2: hsl(233, 57%, 8%);
+    --color2: #090b20;
     --color3: #71a4ad;
     --color4: #d3d2d2;
     --color5: #ffffff;
-    --color6: rgba(199, 206, 209, 0.8);
+    --color6: #c7ced1cc;
     --color7: #d5e46a;
     --pulse-time: 4s;
 }
@@ -47,9 +47,8 @@ main {
     height: 150%;
     width: 200%;
     background: linear-gradient(195deg, var(--color3), var(--color1));
-    z-index: 5;
+    z-index: 1;
 }
-
 .tree-main {
     fill: var(--color2);
 }
@@ -167,7 +166,7 @@ main {
     height: 90px;
     width: 90px;
     background-color: var(--color3);
-    --opacity: .5;
+    --opacity: .4;
     animation: pulse calc(var(--pulse-time)) linear infinite;
 }
 
@@ -175,7 +174,7 @@ main {
     height: 170px;
     width: 170px;
     background-color: var(--color3);
-    --opacity: .4;
+    --opacity: .3;
     animation: pulse calc(var(--pulse-time) + 1s) 1s linear infinite;
 
 }
@@ -203,7 +202,7 @@ main {
 .moon::after {
     height: 300px;
     width: 300px;
-    --opacity: .3;
+    --opacity: .2;
     animation: pulse calc(var(--pulse-time) + 2s) 2s ease infinite;
 }
 
@@ -211,7 +210,7 @@ main {
     height: 620px;
     width: 620px;
     opacity: .2;
-    --opacity: .2;
+    --opacity: .1;
     animation: pulse calc(var(--pulse-time) + 3s) 3s ease-in infinite;
 }
 
@@ -246,7 +245,7 @@ main {
 
     0%,
     100% {
-        opacity: .1;
+        opacity: .10;
     }
 
     50% {
@@ -451,5 +450,55 @@ main {
 @keyframes rotate {
     to {
         transform: rotate(360deg);
+    }
+}
+.cloud,.cloud::after,.cloud::before{
+    content: '';
+    width: 70px;
+    height: 50px;
+    position: absolute;
+    background-color: #c7ced1;
+    border-radius: 50%;
+    z-index: 9;
+}
+.cloud{
+    opacity: .8;
+}
+.cloud:nth-child(1){
+    --distance:600px;
+    transform: translateX(var(--distance));
+    top: 15%;
+    animation: travel 95s ease-in infinite;
+}
+
+.cloud::after{
+    top: 30%;
+    box-shadow:0 -2px 8px 3px #ffffff6b;
+    left: -10%;
+}
+.cloud::before{
+    top: 20%;
+    left: 50%;
+    box-shadow:0 -2px 8px 3px #ffffff6b;
+}
+.cloud:nth-child(2){
+    --distance:500px;
+    transform: translateX(var(--distance));
+    top: 10%;
+    animation: travel 100s ease-in infinite;
+
+}
+
+.clouds{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+@keyframes travel {
+    0%,100%{
+        transform: translateX(var(--distance));
+    }
+    50%{
+        transform: translateX(-20px);
     }
 }
