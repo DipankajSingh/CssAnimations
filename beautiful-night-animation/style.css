@@ -21,7 +21,7 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #000000;
+    background-color: #000000c7;
 }
 
 main {
@@ -30,9 +30,10 @@ main {
     width: 600px;
     background: radial-gradient(circle, #1ab0caa1 1%, #0d0d4e81 100%);
     overflow: hidden;
-    border: 2px solid#271494;
+    border: 1px solid #742178;
     border-radius: .3rem;
     z-index: 1;
+    box-shadow: 5px 5px 10px #7421789f;
     background-position: -20px;
     background-repeat: no-repeat;
     background-size: 1000px;
@@ -49,6 +50,7 @@ main {
     background: linear-gradient(195deg, var(--color3), var(--color1));
     z-index: 1;
 }
+
 .tree-main {
     fill: var(--color2);
 }
@@ -452,7 +454,10 @@ main {
         transform: rotate(360deg);
     }
 }
-.cloud,.cloud::after,.cloud::before{
+
+.cloud,
+.cloud::after,
+.cloud::before {
     content: '';
     width: 70px;
     height: 50px;
@@ -461,44 +466,52 @@ main {
     border-radius: 50%;
     z-index: 9;
 }
-.cloud{
+
+.cloud {
     opacity: .8;
 }
-.cloud:nth-child(1){
-    --distance:600px;
+
+.cloud:nth-child(1) {
+    --distance: 600px;
     transform: translateX(var(--distance));
     top: 15%;
     animation: travel 95s ease-in infinite;
 }
 
-.cloud::after{
+.cloud::after {
     top: 30%;
-    box-shadow:0 -2px 8px 3px #ffffff6b;
+    box-shadow: 0 -2px 8px 3px #ffffff6b;
     left: -10%;
 }
-.cloud::before{
+
+.cloud::before {
     top: 20%;
     left: 50%;
-    box-shadow:0 -2px 8px 3px #ffffff6b;
+    box-shadow: 0 -2px 8px 3px #ffffff6b;
 }
-.cloud:nth-child(2){
-    --distance:500px;
+
+.cloud:nth-child(2) {
+    --distance: 500px;
     transform: translateX(var(--distance));
     top: 10%;
     animation: travel 100s ease-in infinite;
 
 }
 
-.clouds{
+.clouds {
     display: inline-block;
     height: 100%;
     width: 100%;
 }
+
 @keyframes travel {
-    0%,100%{
+
+    0%,
+    100% {
         transform: translateX(var(--distance));
     }
-    50%{
+
+    50% {
         transform: translateX(-20px);
     }
 }
