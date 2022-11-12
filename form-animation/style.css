@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --font-color: 96 100% 50%;
+}
+
 body {
     display: grid;
     place-items: center;
@@ -25,14 +29,14 @@ form {
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    color: white;
+    color: hsl(128, 100%, 90%);
     font-weight: 800;
 }
 
 form input {
     height: 2.9em;
     width: 25em;
-    border: 2px rgb(0, 255, 255) solid;
+    border: 2px hsl(var(--font-color)) solid;
     background-color: hsla(0, 0%, 100%, 0.288);
     border-radius: .2rem;
     border-top: none;
@@ -42,15 +46,41 @@ form input {
     font-family: monospace;
     font-weight: 700;
     text-transform: capitalize;
+    transition: background 300ms, box-shadow 300ms;
+    box-shadow: 1px 4px 4px forestgreen;
+}
+
+form input:focus {
+    outline: none;
+    box-shadow: 3px 6px 8px forestgreen;
+    background-color: rgba(240, 255, 240, 0.541);
 }
 
 form label {
     position: relative;
     display: inline-block;
     top: 10px;
-
-    left: 30px;
+    left: 50px;
     font-size: .8em;
-    color: rgb(0, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    color: hsl(var(--font-color));
+    font-family: Helvetica, sans-serif;
+}
+
+form label::after,
+form label::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    background-color: red;
+}
+
+form label::after {
+    left: -48px;
+    width: 45px;
+    top: 5px;
+}
+
+form label::before {
+    left: 200px;
+    width: 200px;
 }
